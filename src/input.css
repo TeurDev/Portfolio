@@ -1,0 +1,396 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body,
+  #navbar, #hero,
+  section, footer,
+  #mobile-menu,
+  .bg-gray-700, .bg-gray-800, .bg-gray-900 {
+    transition:
+      background-color 0.5s ease-in-out,
+      color            0.5s ease-in-out,
+      border-color     0.5s ease-in-out,
+      box-shadow       0.5s ease-in-out,
+      backdrop-filter  0.5s ease-in-out,
+      opacity          0.3s ease-in-out;
+  }
+}
+
+@layer components {
+  /* ====================
+     Hero drift animation
+     ==================== */
+  #hero {
+    background-size: 249% 200%;
+    animation: drift 9s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes drift {
+    0%   { background-position: 50%  50%; }
+    33%  { background-position: 50%   0%; }
+    66%  { background-position: 75%  50%; }
+    100% { background-position: 50% 75%; }
+  }
+
+  /* ========================
+     Animated underline util
+     ======================== */
+  .animated-underline {
+    position: relative;
+  }
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.6px;
+    background-color: currentColor;
+    transition: width 0.5s ease-in-out;
+  }
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+
+  /* ====================================
+     Hero overlay for smooth mode transition
+     ==================================== */
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background-image: linear-gradient(
+      90deg,
+      #f3f4f6 0%,
+      #e0e7ff 50%,
+      #77a4ff 100%
+    );
+    background-size: 200% 200%;
+    animation: drift 13s ease-in-out infinite;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+  }
+  /* Eleva el contenido sobre el overlay */
+  #hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===================
+     Light-mode overrides
+     =================== */
+  body.light-mode {
+    background-color: #f3f4f6 !important; /* gray-100 */
+    color: #1e3a8a     !important;         /* blue-800 */
+  }
+
+  /* Navbar */
+  body.light-mode #navbar {
+    background-color: transparent !important;
+    border-bottom: none             !important;
+  }
+  body.light-mode #navbar h1,
+  body.light-mode #navbar a {
+    color: #1e3a8a !important; /* blue-800 */
+  }
+  body.light-mode #navbar a:hover {
+    color: #4977c0 !important; /* blue-500 */
+  }
+  body.light-mode #theme-toggle {
+    color:           #60a5fa !important;
+    border-color:    #60a5fa !important;
+    background-color:transparent !important;
+  }
+  body.light-mode #theme-toggle:hover {
+    background-color: rgba(96,165,250,0.1) !important;
+    color:            #3b82f6            !important;
+  }
+
+  /* Hero: al activar light-mode, fade-in del overlay */
+  body.light-mode #hero::before {
+    opacity: 1;
+  }
+  /* Hero text y botones en light-mode */
+  body.light-mode #hero h2,
+  body.light-mode #hero p {
+    color: #1e3a8a !important;  /* blue-800 */
+  }
+  body.light-mode #hero .hero-primary {
+    color: white    !important;
+  }
+  body.light-mode #hero a:hover {
+    background-color: #3b82f6 !important;
+  }
+
+  /* Botón secundario del hero */
+  body.light-mode .hero-secondary {
+    color: #1e3a8a !important; /* blue-800 */
+  }
+  body.light-mode .hero-secondary:hover {
+    background-color: #3b82f6 !important; /* blue-500 */
+    color:            #fff     !important;
+  }
+
+  /* Secciones y tarjetas */
+  body.light-mode section#about,
+  body.light-mode section#contact{
+    background-color: #f3f4f6 !important; /* gray-100 */
+  }
+  body.light-mode section#projects{
+    background-color: #eeeeee !important; /* gray-100 */
+  }
+  /* =============================================
+     Mejor separación y contraste para secciones
+     ============================================= */
+  body.light-mode section#about,
+  body.light-mode section#projects,
+  body.light-mode section#contact {
+    border-top: 1px solid #e5e7eb !important; /* gray-200 */
+  }
+
+  /* Cards: fondo blanco puro + sombra reforzada */
+  body.light-mode .bg-gray-700,
+  body.light-mode .bg-gray-800,
+  body.light-mode .bg-gray-900 {
+    background-color: #ffffff !important;
+  }
+  body.light-mode .shadow-lg {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  }
+  /* Titulares dentro de cards/secciones */
+  body.light-mode h3,
+  body.light-mode h4 {
+    color: #1e3a8a !important; /* blue-800 */
+  }
+
+  /* Enlaces dentro de secciones */
+  body.light-mode section a {
+    color: #60a5fa !important;  /* blue-300 */
+  }
+  body.light-mode section a:hover {
+    color: #3b82f6 !important;  /* blue-500 */
+  }
+
+  body.light-mode section p,
+  body.light-mode .bg-white p {
+    color: #374151 !important; /* gray-700 */
+  }
+
+  /* Footer */
+  body.light-mode footer {
+    background-color: #4f648d;
+    border-top: 1px solid #e5e7eb !important; /* gray-200 */
+  }
+
+  /* Navbar scrolled (light-mode) */
+  body.light-mode #navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.555) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.10) !important;
+    border-bottom: 1px solid rgba(203, 213, 225, 0.8) !important; /* gray-300 */
+  }
+
+  /* Mobile menu overrides */
+  body.light-mode #mobile-menu-button {
+    background-color: rgb(223, 223, 223) !important; /* gray-200 */
+  }
+  body.light-mode #mobile-menu-button svg {
+    stroke: #1e3a8a !important; /* blue-800 */
+  }
+  body.light-mode #mobile-menu {
+    background-color: #f3f4f6 !important; /* gray-100 */
+  }
+  body.light-mode #mobile-menu a,
+  body.light-mode #mobile-menu button {
+    color: #1e3a8a !important; /* blue-800 */
+  }
+  body.light-mode #mobile-menu a:hover,
+  body.light-mode #mobile-menu button:hover {
+    color: #3b82f6 !important;                  /* blue-500 */
+    background-color: rgba(96, 165, 250, 0.1) !important; /* blue-300 @10% */
+  }
+
+
+    /* ============================
+     Footer igual a Projects BG
+     Descripciones más oscuras
+     ============================ */
+  /* Footer con mismo gris claro que projects */
+  body.light-mode footer {
+    background-color: #eeeeee !important; /* o #f3f4f6 si prefieres gray-100 */
+  }
+
+ 
+
+  /* Descripciones (párrafos) aún más oscuras */
+  body.light-mode section#about p,
+  body.light-mode section#contact p,
+  body.light-mode .bg-white p {
+    color: #374151 !important; /* gray-700 */
+  }
+
+
+  /* ==============================
+   Tech-logo “apagado” por defecto
+   y “encendido” al hover
+   ============================== */
+/* estado apagado */
+#about .tech-logo {
+  filter: grayscale(100%) brightness(70%);
+  opacity: 0.9;
+  transition: 
+    filter 0.3s ease-in-out 0.1s,
+    opacity 0.3s ease-in-out 0.1s;
+}
+
+
+/* hover: unifica todo en un solo filter */
+#about .tech-item:hover .tech-logo {
+  filter: grayscale(0%) brightness(100%) drop-shadow(0 6px 20px rgba(0,0,0,0.3));
+  opacity: 1;
+}
+
+
+/* Light-mode apagado: grayscale + brillo casi normal */
+body.light-mode #about .tech-logo {
+  filter: grayscale(100%) brightness(100%);
+  opacity: 0.8;
+}
+
+
+.tech-item {
+  position: relative;
+}
+
+/* El “globo” que sale al hover */
+.tech-item::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -10%;             /* justo encima del icono */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+  font-size: 0.75rem;
+  z-index: 10;
+}
+.tech-item1 {
+  position: relative;
+}
+.tech-item1::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -10%;             /* justo encima del icono */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+  font-size: 0.75rem;
+  z-index: 10;
+}
+
+/* Al hover, sube la opacidad */
+.tech-item:hover::after {
+  opacity: 1;
+}
+.tech-item1:hover::after {
+  opacity: 1;
+}
+
+
+
+
+/* ====================================
+   Styles específicos para Projects List
+   ==================================== */
+/* Proyecto List: tarjetas más anchas,
+   borde bajo el banner y hover */
+#projects-list .project-card {
+  cursor: pointer;
+  padding-bottom: 0.75rem;         /* espacio interior inferior */
+  border: 2px solid transparent;   /* borde animable */
+  border-radius: 1rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  /* opcional: max-width para que no crezcan demasiado */
+}
+
+#projects-list .project-card img {
+  height: 14rem;                   /* ligeramente más alto */
+  object-fit: cover;
+  border-bottom: 4px solid #2563eb; /* blue-600 */
+  transition: border-color 0.3s ease;
+}
+
+#projects-list .project-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;           /* blue-500 */
+}
+
+
+/* Light-mode overrides */
+body.light-mode #projects-list .project-card {
+  background-color: #ffffff !important;
+  box-shadow:       0 8px 20px rgba(0, 0, 0, 0.13) !important;
+}
+body.light-mode #projects-list .project-card img {
+  border-color: #3b82f6 !important; /* blue-500 */
+}
+
+/* ====================================
+   Styles para Project Detail Page
+   ==================================== */
+#project-detail h2 {
+  color: #ffffff;
+}
+#project-detail img {
+  transition: filter 0.5s ease;
+}
+body.light-mode #project-detail img {
+  filter: grayscale(30%);
+}
+
+/* Tech-tags pills */
+
+
+/* Descripción del proyecto */
+#project-detail .proyecto-descripcion p {
+  color: #d1d5db; /* gray-300 */
+}
+body.light-mode #project-detail .proyecto-descripcion p {
+  color: #374151 !important;
+}
+
+/* Título “Todos mis Proyectos” en light-mode */
+body.light-mode #projects-list h3 {
+  color: #1e3a8a !important;   /* blue-800 */
+}
+
+/* Título detalle de proyecto en light-mode */
+body.light-mode #project-detail h2 {
+  color: #1e3a8a !important;   /* blue-800 */
+}
+
+
+
+
+
+
+
+}
