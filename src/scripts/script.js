@@ -5,10 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileBtnTheme  = document.getElementById('mobile-theme-toggle');
 
   // 1) Restaurar tema desde localStorage
-  if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-mode');
-    desktopBtn.textContent = 'Dark';
-    if (mobileBtnTheme) mobileBtnTheme.textContent = 'Dark';
+  const savedTheme = localStorage.getItem('theme');
+
+  if (!savedTheme || savedTheme === 'light') {
+  // Si no hay nada guardado o es "light"
+  document.body.classList.add('light-mode');
+  desktopBtn.textContent = 'Dark';
+  if (mobileBtnTheme) mobileBtnTheme.textContent = 'Dark';
+  } else {
+  // Si está guardado como "dark"
+  document.body.classList.remove('light-mode');
+  desktopBtn.textContent = 'Light';
+  if (mobileBtnTheme) mobileBtnTheme.textContent = 'Light';
   }
 
   // 2) Scroll: toggla clases scrolled
