@@ -7,27 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const linkedinIcon = document.getElementById('linkedin-icon');
   const githubIcon   = document.getElementById('github-icon');
 
+  // Detecta entorno: Pages o local
+  const isPages = window.location.pathname.includes('/Portfolio/');
+  const basePath = isPages ? '/Portfolio/src/img/' : 'src/img/';
+
   // Función para actualizar íconos según tema
+function getBasePath() {
+  const pathname = window.location.pathname;
+
+  if (pathname.includes('index.html') || pathname === '/' || pathname === '/Portfolio/') {
+    return 'src/img/';           // raíz
+  } else if (pathname.includes('pages/projects/project-detail')) {
+    return '../../img/';         // project-detail.html
+  } else if (pathname.includes('pages/projects')) {
+    return '../img/';            // projects.html
+  } else {
+    return '../img/';            // fallback
+  }
+}
+
 function updateIcons(isLight) {
   const linkedinIcon = document.getElementById('linkedin-icon');
   const githubIcon   = document.getElementById('github-icon');
 
-  // Determinar ruta base según el nivel de la página
-  const pathParts = window.location.pathname.split('/').filter(Boolean);
-  let basePath = '';
+  const basePath = getBasePath();
 
-  if (pathParts.length > 3) {       // por ejemplo: /src/pages/subcarpeta/pagina.html
-    basePath = '../../img/';
-  } else if (pathParts.length === 3) { // /src/pages/pagina.html
-    basePath = '../img/';
-  } else {                          // raíz, index.html
-    basePath = 'src/img/';
-  }
-
-  // Asignar imágenes según el tema
   linkedinIcon.src = isLight ? basePath + 'lind.png' : basePath + 'linl.png';
   githubIcon.src   = isLight ? basePath + 'gitd.png' : basePath + 'gitl.png';
 }
+
+
 
 
   // 1) Restaurar tema desde localStorage
@@ -46,7 +55,7 @@ function updateIcons(isLight) {
 
   updateIcons(isLight); // actualizar íconos al cargar
 
-  // 2) Scroll: toggla clases scrolled
+  // 2) Scroll: toggle clases scrolled
   window.addEventListener('scroll', () => {
     if (window.scrollY > SCROLL_THRESHOLD) {
       navbar.classList.add('scrolled','max-w-4xl','px-8','bg-gray-800/50','backdrop-blur-lg','rounded-3xl','shadow-lg');
@@ -59,11 +68,10 @@ function updateIcons(isLight) {
 
   // 3) Cambio de tema (desktop + móvil)
   function toggleTheme() {
-    const isLight = document.body.classList.toggle('light-mode'); // toggle como antes
+    const isLight = document.body.classList.toggle('light-mode');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
     desktopBtn.textContent = isLight ? 'Dark' : 'Light';
     if (mobileBtnTheme) mobileBtnTheme.textContent = isLight ? 'Dark' : 'Light';
-
     updateIcons(isLight); // actualizar íconos al cambiar tema
   }
 
