@@ -20,21 +20,19 @@
   >
     <!-- Nav Izquierda (desktop) -->
     <nav class="flex-1 flex justify-center space-x-12 px-4">
-      <a href="https://www.linkedin.com/in/jorge-eugenio-nikolaichvili-557907294/"><img src="src/img/link.png"
-         alt="LinkedIn"
-         href="#about"
-         class="md:h-6 md:w-6"/></a>
 
-      <a href="https://github.com/TeurDev"><img src="src/img/github.png"
-         alt="GitHub"
-         href="#about"
-         class="md:h-6 md:w-6"/></a>
+<a href="https://www.linkedin.com/in/jorge-eugenio-nikolaichvili-557907294/">
+  <img id="linkedin-icon" src="src/img/lind.png" alt="LinkedIn" class="md:h-6 md:w-6"/>
+</a>
+<a href="https://github.com/TeurDev">
+  <img id="github-icon" src="src/img/gitd.png" alt="GitHub" class="md:h-6 md:w-6"/>
+</a>
       <a href="#about" class="text-gray-200 hover:text-blue-400">Sobre mí</a>
     </nav>
 
     <!-- Título siempre centrado -->
     <a href="#hero">
-      <h1 class="text-xl font-bold flex-shrink-0">Teur DEV</h1>
+      <h1 class="text-2xl font-bold flex-shrink-0">Teur DEV</h1>
     </a>
 
     <!-- Nav Derecha (desktop) -->
@@ -83,7 +81,7 @@
       class="h-full max-w-4xl mx-auto flex flex-col justify-center items-center text-center px-4"
     >
       <h2 class="text-4xl md:text-5xl font-extrabold mb-4">¡Hola, soy Jorge Eugenio!</h2>
-      <p class="text-lg md:text-xl mb-6">Desarrollador Front-end | Interfaces limpias y oscuras</p>
+      <p class="text-lg md:text-xl mb-6">Desarrollador Software | Ideas que cobran vida en código</p>
 <div class="space-x-4">
   <a href="#projects"
      class="inline-block
@@ -117,27 +115,28 @@
     <div>
       <h3 class="text-3xl font-bold mb-4">Sobre mí</h3>
       <p class="mb-4 leading-relaxed">
-        Soy un desarrollador web que disfruta trabajando en interfaces oscuras y modernas.
+        Soy estudiante de Ingeniería de Telecomunicaciones y estoy aprendiendo desarrollo de software, tanto frontend como backend.
         Aquí algunas de las tecnologías con las que más trabajo:
       </p>
     </div>
     <!-- Grid de skills -->
 <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
-  <div class="tech-item text-center "data-name="Android Studio">
+  <div class="tech-item text-center "data-name="C">
     <img src="src/img/c.png"
-         alt="Android Studio"
+         alt="C"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
-  <div class="tech-item text-center"data-name="CSS">
-    <img src="src/img/css.svg"
-         alt="CSS"
+  <div class="tech-item text-center"data-name="Java">
+    <img src="src/img/java.png"
+         alt="Java"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
-  <div class="tech-item text-center " data-name="HTML5">
-    <img src="src/img/html.png"
-         alt="HTML5"
+  
+  <div class="tech-item text-center"data-name="React Native">
+    <img src="src/img/reactnative.svg"
+         alt="React Native"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
@@ -154,20 +153,19 @@
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
   
-  <div class="tech-item text-center"data-name="Java">
-    <img src="src/img/java.svg"
-         alt="Java"
+  
+  <div class="tech-item text-center"data-name="CSS">
+    <img src="src/img/css.svg"
+         alt="CSS"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
-  
-  <div class="tech-item text-center"data-name="React Native">
-    <img src="src/img/reactnative.svg"
-         alt="React Native"
+  <div class="tech-item text-center " data-name="HTML5">
+    <img src="src/img/html.png"
+         alt="HTML5"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
-  
   <div class="tech-item text-center"data-name="Expo">
     <img src="src/img/expo.svg"
          alt="Expo"
@@ -175,9 +173,9 @@
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
   
-  <div class="tech-item text-center"data-name="HTML5">
+  <div class="tech-item text-center"data-name="Android Studio">
     <img src="src/img/and.png"
-         alt="Vue.js"
+         alt="Android"
          class="tech-logo mx-auto h-16 w-16 mb-1 md:h-20 md:w-20"/>
     <span class="block text-sm">ㅤㅤㅤㅤ</span>
   </div>
@@ -192,13 +190,16 @@
   <section id="projects" class="py-20 bg-gray-800">
     <div class="max-w-5xl mx-auto px-4">
       <h3 class="text-3xl font-bold text-center mb-12">Proyectos Destacados</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="projects-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="bg-gray-700 rounded-2xl shadow-lg overflow-hidden flex flex-col">
-          <img src="img/revolucion.png" alt="Proyecto 1" class="w-full h-40 object-cover"/>
+        <div class=" project-card bg-gray-700 rounded-2xl shadow-lg overflow-hidden flex flex-col "
+            onclick="window.location.href='src/pages/projects/project-detail.html'">
+          <img src="src/img/revolucion.png" alt="Proyecto 1" class="w-full h-40 object-cover"/>
           <div class="p-4 flex-1 flex flex-col">
-            <h4 class="text-xl font-semibold mb-2 text-white">Proyecto 1</h4>
-            <p class="text-gray-300 mb-4 flex-1">Descripción breve del proyecto y tecnologías usadas.Descripción breve del proyecto y tecnologías usadas.Descripción breve del proyecto y tecnologías usadas.Descripción breve del proyecto y tecnologías usadas.Descripción breve del proyecto y tecnologías usadas.</p>
+            <h4 class="text-xl font-semibold mb-2 text-white">DoorSentinel</h4>
+            <p class="text-gray-300 mb-4 flex-1">Aplicación de monitoreo de puertas en tiempo real. <br />
+              Proyecto fin de curso que utiliza tecnologías como React Native con Expo, Node.js y MongoDB. <br />
+              Y se implementó una API REST para la gestión de usuarios y autenticación.</p>
             <div class="mt-auto space-x-2">
               <a href="src/pages/projects.html" class="text-blue-400 animated-underline">GitHub</a>
               <a href="src/pages/projects/project-detail.html" class="text-blue-400 animated-underline">Demo</a>
@@ -207,10 +208,12 @@
         </div>
         <!-- Card 1 -->
         <div class="bg-gray-700 rounded-2xl shadow-lg overflow-hidden flex flex-col">
-          <img src="https://via.placeholder.com/300x200" alt="Proyecto 1" class="w-full h-40 object-cover"/>
+          <img src="src/img/revolucion.png" alt="Proyecto 1" class="w-full h-40 object-cover"/>
           <div class="p-4 flex-1 flex flex-col">
-            <h4 class="text-xl font-semibold mb-2 text-white">Proyecto 1</h4>
-            <p class="text-gray-300 mb-4 flex-1">Descripción breve del proyecto y tecnologías usadas.</p>
+            <h4 class="text-xl font-semibold mb-2 text-white">DoorSentinel</h4>
+            <p class="text-gray-300 mb-4 flex-1">Aplicación de monitoreo de puertas en tiempo real. <br />
+              Proyecto fin de curso que utiliza tecnologías como React Native con Expo, Node.js y MongoDB. <br />
+              Y se implementó una API REST para la gestión de usuarios y autenticación.</p>
             <div class="mt-auto space-x-2">
               <a href="#" class="text-blue-400 animated-underline">GitHub</a>
               <a href="#" class="text-blue-400 animated-underline">Demo</a>
@@ -232,15 +235,12 @@
         <!-- Duplica estas tarjetas según necesites -->
       </div>
       
-          <a href="#contact"
-     class="inline-block
-            border border-blue-800
-            text-blue-400 font-semibold
-            py-3 px-6
-            rounded-full
-            hover:bg-blue-600/20 transition hero-secondary">
-    Contactarme
-  </a>
+      <div class="flex justify-center mt-8">
+        <a href="src/pages/projects.html"
+           class="border border-blue-800 text-blue-400 font-semibold py-3 px-6 rounded-full hover:bg-blue-600/20 transition hero-secondary">
+            Ver todos los proyectos
+        </a>
+      </div>
     </div>
     
   </section>
@@ -269,7 +269,7 @@
   <!-- FOOTER -->
   <footer class="bg-gray-800 border-t border-gray-700 py-6">
     <div class="max-w-4xl mx-auto text-center text-sm text-gray-400">
-      © 2025 Tu Nombre — 
+      © 2025 Teur — 
       <a href="https://github.com/TeurDev" class="underline hover:text-gray-200">GitHub</a> · 
       <a href="https://www.linkedin.com/in/jorge-eugenio-nikolaichvili-557907294/" class="underline hover:text-gray-200">LinkedIn</a>
     </div>

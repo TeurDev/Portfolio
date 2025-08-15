@@ -4,20 +4,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const desktopBtn      = document.getElementById('theme-toggle');
   const mobileBtnTheme  = document.getElementById('mobile-theme-toggle');
 
+  const linkedinIcon = document.getElementById('linkedin-icon');
+  const githubIcon   = document.getElementById('github-icon');
+
+  // Función para actualizar íconos según tema
+function updateIcons(isLight) {
+  const linkedinIcon = document.getElementById('linkedin-icon');
+  const githubIcon   = document.getElementById('github-icon');
+
+  // Determinar ruta base según el nivel de la página
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  let basePath = '';
+
+  if (pathParts.length > 3) {       // por ejemplo: /src/pages/subcarpeta/pagina.html
+    basePath = '../../img/';
+  } else if (pathParts.length === 3) { // /src/pages/pagina.html
+    basePath = '../img/';
+  } else {                          // raíz, index.html
+    basePath = 'src/img/';
+  }
+
+  // Asignar imágenes según el tema
+  linkedinIcon.src = isLight ? basePath + 'lind.png' : basePath + 'linl.png';
+  githubIcon.src   = isLight ? basePath + 'gitd.png' : basePath + 'gitl.png';
+}
+
+
   // 1) Restaurar tema desde localStorage
   const savedTheme = localStorage.getItem('theme');
+  const isLight = !savedTheme || savedTheme === 'light';
 
-  if (!savedTheme || savedTheme === 'light') {
-  // Si no hay nada guardado o es "light"
-  document.body.classList.add('light-mode');
-  desktopBtn.textContent = 'Dark';
-  if (mobileBtnTheme) mobileBtnTheme.textContent = 'Dark';
+  if (isLight) {
+    document.body.classList.add('light-mode');
+    desktopBtn.textContent = 'Dark';
+    if (mobileBtnTheme) mobileBtnTheme.textContent = 'Dark';
   } else {
-  // Si está guardado como "dark"
-  document.body.classList.remove('light-mode');
-  desktopBtn.textContent = 'Light';
-  if (mobileBtnTheme) mobileBtnTheme.textContent = 'Light';
+    document.body.classList.remove('light-mode');
+    desktopBtn.textContent = 'Light';
+    if (mobileBtnTheme) mobileBtnTheme.textContent = 'Light';
   }
+
+  updateIcons(isLight); // actualizar íconos al cargar
 
   // 2) Scroll: toggla clases scrolled
   window.addEventListener('scroll', () => {
@@ -32,20 +59,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3) Cambio de tema (desktop + móvil)
   function toggleTheme() {
-    const isLight = document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.toggle('light-mode'); // toggle como antes
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    desktopBtn.textContent    = isLight ? 'Dark' : 'Light';
+    desktopBtn.textContent = isLight ? 'Dark' : 'Light';
     if (mobileBtnTheme) mobileBtnTheme.textContent = isLight ? 'Dark' : 'Light';
+
+    updateIcons(isLight); // actualizar íconos al cambiar tema
   }
+
   desktopBtn.addEventListener('click', toggleTheme);
   if (mobileBtnTheme) mobileBtnTheme.addEventListener('click', toggleTheme);
 
   // 4) Menú móvil con fade
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
   const mobileMenu    = document.getElementById('mobile-menu');
+
   function openMenu() {
     mobileMenu.classList.remove('pointer-events-none','opacity-0');
   }
+
   function closeMenu() {
     mobileMenu.classList.add('opacity-0');
     mobileMenu.addEventListener('transitionend', function handler(e) {
@@ -55,9 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
   mobileMenuBtn.addEventListener('click', () =>
     mobileMenu.classList.contains('pointer-events-none') ? openMenu() : closeMenu()
   );
+
   mobileMenu.querySelectorAll('a, button').forEach(el =>
     el.addEventListener('click', closeMenu)
   );
