@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="../../../dist/output.css" rel="stylesheet" />
+  <title>Detalle de Proyecto</title>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
+
+  <!-- HEADER -->
+   <header class=" fixed top-0 left-0 w-full z-10">
+  <div
+    id="navbar"
+    class="mt-3 hidden md:flex max-w-6xl mx-auto items-center justify-between
+           py-4 px-4 transition-all duration-500 ease-in-out
+           bg-transparent backdrop-blur-none"
+  >
+    <!-- Nav Izquierda (desktop) -->
+    <nav class="flex-1 flex justify-center space-x-12 px-4">
+
+<a href="https://www.linkedin.com/in/jorge-eugenio-nikolaichvili-557907294/">
+  <img id="linkedin-icon" src="../../img/lind.png" alt="LinkedIn" class="md:h-6 md:w-6"/>
+</a>
+<a href="https://github.com/TeurDev">
+  <img id="github-icon"   src="../../img/gitd.png" alt="GitHub" class="md:h-6 md:w-6"/>
+</a>
+      <a href="/Portfolio/#about" class="text-gray-200 hover:text-blue-400">Sobre mí</a>
+    </nav>
+
+    <!-- Título siempre centrado -->
+    <a href="/Portfolio/#hero">
+      <h1 class="text-xl font-bold flex-shrink-0">Teur DEV</h1>
+    </a>
+
+    <!-- Nav Derecha (desktop) -->
+    <nav class="flex-1 flex justify-end space-x-12 px-4">
+      <a href="/Portfolio/#projects" class="text-gray-200 hover:text-blue-400">Proyectos</a>
+      <a href="/Portfolio/#contact" class="text-gray-200 hover:text-blue-400">Contacto</a>
+
+      <button
+        id="theme-toggle"
+        class="ml-2 px-2 py-0.5 text-xs border border-gray-200 rounded-full text-gray-200 hover:bg-gray-700 transition"
+      >Light</button>
+    </nav>
+  </div>
+
+  <!-- Botón hamburger (móvil) -->
+  <div class="flex items-center justify-between md:hidden bg-gray-900 max-w-6xl mx-auto py-4 px-4">
+    <h1 class="text-xl font-bold">Teur DEV</h1>
+    <button id="mobile-menu-button" class="focus:outline-none">
+      <!-- simple SVG de 3 barras -->
+      <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil (hidden por defecto) -->
+  <div id="mobile-menu" class="md:hidden bg-gray-900 text-gray-100 opacity-0 pointer-events-none">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="/Portfolio/#about" class="hover:text-blue-400">Sobre mí</a>
+      <a href="/Portfolio/#projects" class="hover:text-blue-400">Proyectos</a>
+      <a href="/Portfolio/#contact" class="hover:text-blue-400">Contacto</a>
+      <button
+        id="mobile-theme-toggle"
+        class="mt-2 px-2 py-1 text-xs border border-gray-200 rounded-full text-gray-200 hover:bg-gray-700 transition self-start"
+      >Light</button>
+    </nav>
+  </div>
+</header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow pt-24">
+    <section id="project-detail" class="py-20 bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4">
+        <!-- TÍTULO -->
+        <h2 class="text-4xl font-extrabold mb-6 text-white">Retro Z-MD</h2>
+
+        <!-- BANNER -->
+        <img
+          src="../../img/logozmd.png"
+          alt="Banner Proyecto"
+          class="w-full rounded-2xl mb-8 object-contain  h-64 sm:h-96"
+        />
+
+        <!-- TECNOLOGÍAS -->
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 mb-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Tecnologías Utilizadas</h3>
+          <div class="tech-tags flex flex-wrap gap-4">
+  <div class="tech-item1 text-center" data-name="C/C++">
+    <img
+      src="../../img/c.png"
+      alt="C/C++"
+      class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
+    />
+    <span class="block text-sm">ㅤㅤㅤㅤ</span>
+  </div>
+  
+  <!-- más .tech-item según necesites -->
+</div>
+        </div>
+
+        <!-- DESCRIPCIÓN -->
+        <div class="proyecto-descripcion text-gray-300 leading-relaxed space-y-6 text-lg md:text-xl">
+  <p>
+    <span class="font-bold">Minijuego de zombies en C:</span> se ejecuta en la consola, con estética retro. Al iniciar una partida, el jugador elige la <span class="font-semibold">altura</span> y <span class="font-semibold">anchura del tablero</span>, lo que determina el escenario de juego. El símbolo <span class="font-bold">S</span> representa al superviviente, las <span class="font-bold">Z</span> son los zombies, los <span class="font-bold">*</span> son minas, y los <span class="font-bold">@</span> funcionan como teletransportadores. El objetivo es simple: <span class="font-bold">sobrevivir hasta que todos los zombies caigan en minas</span> sin que logren comerse al jugador.
+  </p>
+  <p>
+    Además, el juego incluye un <span class="font-semibold">sistema de dificultad ajustable</span> del 1 al 10: en el nivel 1 los zombies se mueven de forma ocasional (10% de probabilidad cada turno), mientras que en el nivel 10 persiguen al jugador de manera implacable en cada movimiento.
+  </p>
+</div>
+
+      <div class="grid grid-cols-2 gap-6 text-center">
+          
+          <!-- LinkedIn -->
+          <div class="col-span-1 flex flex-col items-center">
+            <a href="https://github.com/TeurDev/Retro-Z-MD" target="_blank"
+              class="border border-blue-800 text-blue-400 font-semibold py-2 px-10 rounded-full text-sm mt-4 hover:bg-blue-600/20 transition hero-secondary">
+              Ver en GitHub
+            </a>
+          </div>
+
+          <!-- Email -->
+          <div class="col-span-1 flex flex-col items-center">
+            <a href="../../files/RetroZMD.exe" download 
+              class="border border-blue-800 text-blue-400 font-semibold py-2 px-10 rounded-full text-sm mt-4 hover:bg-blue-600/20 transition hero-secondary">
+              Descargar Exe
+            </a>
+          </div>
+
+      </div>
+      </div>
+    </section>
+  </main>
+
+<!-- FOOTER -->
+  <footer class="bg-gray-800 border-t border-gray-700 py-6">
+    <div class="max-w-4xl mx-auto text-center text-sm text-gray-400">
+      © 2025 Teur — 
+      <a href="https://github.com/TeurDev" class="underline hover:text-gray-200">GitHub</a> · 
+      <a href="https://www.linkedin.com/in/jorge-eugenio-nikolaichvili-557907294/" class="underline hover:text-gray-200">LinkedIn</a>
+    </div>
+
+  <script src="../../scripts/script.js"></script>
+</body>
+</html>

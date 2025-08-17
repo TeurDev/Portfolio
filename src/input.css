@@ -391,6 +391,29 @@ body.light-mode #project-detail h2 {
 
 
 
+/* ===============================
+   Botón “Ver Proyectos” fuera del hero
+   =============================== */
+.btn-projects {
+  @apply inline-block
+         bg-gradient-to-r from-blue-700 to-blue-900
+         text-white font-semibold
+         py-2 px-4
+         rounded-full shadow-lg
+         hover:opacity-90
+         transition;
+}
+
+/* Aseguramos que el texto siga blanco en modo light */
+body.light-mode .btn-projects {
+  color: white !important;
+}
+
+.btn-projects:hover {
+  @apply opacity-90;
+}
+
+
 
 
 }
