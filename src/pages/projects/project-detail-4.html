@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="../../../dist/output.css" rel="stylesheet" />
-  <title>Teur Dev Web</title>
+  <title>MessagesFX</title>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
 
@@ -76,11 +76,11 @@
     <section id="project-detail" class="py-20 bg-gray-900">
       <div class="max-w-4xl mx-auto px-4">
         <!-- TÍTULO -->
-        <h2 class="text-4xl font-extrabold mb-6 text-white">Pagina Web Portfolio</h2>
+        <h2 class="text-4xl font-extrabold mb-6 text-white">MessagesFX</h2>
 
         <!-- BANNER -->
         <img
-          src="../../img/logop.png"
+          src="../../img/logomsfx.png"
           alt="Banner Proyecto"
           class="w-full rounded-2xl mb-8 object-contain  h-64 sm:h-96"
         />
@@ -89,49 +89,60 @@
         <div class="bg-gray-800 rounded-2xl shadow-xl p-6 mb-8">
           <h3 class="text-2xl font-semibold text-white mb-4">Tecnologías Utilizadas</h3>
           <div class="tech-tags flex flex-wrap gap-4">
-  <div class="tech-item1 text-center" data-name="HTML5">
-    <img
-      src="../../img/html.png"
-      alt="HTML5"
-      class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
-    />
-    <span class="block text-sm">ㅤㅤㅤㅤ</span>
-  </div>
-  <div class="tech-item1 text-center" data-name="CSS3">
-    <img
-      src="../../img/css.svg"
-      alt="CSS3"
-      class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
-    />
-    <span class="block text-sm">ㅤㅤㅤㅤ</span>
-  </div>
-  <div class="tech-item1 text-center" data-name="Tailwindcss">
-    <img
-      src="../../img/tailwindcss.png"
-      alt="Tailwindcss"
-      class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
-    />
-    <span class="block text-sm">ㅤㅤㅤㅤ</span>
-  </div>
-  <!-- más .tech-item según necesites -->
-</div>
+          <div class="tech-item1 text-center" data-name="Java">
+            <img
+              src="../../img/java.png"
+              alt="Java"
+              class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
+            />
+            <span class="block text-sm">ㅤㅤㅤㅤ</span>
+          </div>
+          <div class="tech-item1 text-center" data-name="JavaFX">
+            <img
+              src="../../img/javafx.png"
+              alt="JavaFX"
+              class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
+            />
+            <span class="block text-sm">ㅤㅤㅤㅤ</span>
+          </div>
+          <div class="tech-item1 text-center" data-name="Node.js">
+            <img
+              src="../../img/nodejs.png"
+              alt="Node.js"
+              class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
+            />
+            <span class="block text-sm">ㅤㅤㅤㅤ</span>
+          </div>
+          <div class="tech-item1 text-center" data-name="MongoDB">
+            <img
+              src="../../img/mongo.png"
+              alt="MongoDB"
+              class="tech-logo mx-auto h-12 w-12 mb-1 md:h-14 md:w-14"
+            />
+            <span class="block text-sm">ㅤㅤㅤㅤ</span>
+          </div>
+          <!-- más .tech-item según necesites -->
+        </div>
         </div>
 
-        <!-- DESCRIPCIÓN -->
-         <div class="proyecto-descripcion text-gray-300 leading-relaxed space-y-6 text-lg md:text-xl">
-  <p>
-    <span class="font-bold">Sitio web personal:</span> desarrollado con <span class="font-bold">HTML, CSS y Tailwind CSS</span>, pensado como una carta de presentación digital. El portfolio incluye <span class="font-semibold">dos modos</span> (claro y oscuro) para adaptarse a las preferencias del usuario y está organizado en distintas secciones: <span class="font-bold">página principal, listado de proyectos y páginas individuales</span> para cada uno de ellos. 
-  </p>
-  <p>
-    Es el lugar donde concentro y muestro mis trabajos, funcionando como un <span class="font-semibold">escaparate digital</span>. Y sí, este mismo texto que estás leyendo está dentro de él, lo cual lo convierte en un proyecto que se <span class="font-bold">documenta a sí mismo</span>.
-  </p>
-</div>
+              <!-- DESCRIPCIÓN -->
+            <div class="proyecto-descripcion text-gray-300 leading-relaxed space-y-6 text-lg md:text-xl">
+                <p>
+                    <span class="font-bold">MessagesFX:</span> una aplicación de mensajería de escritorio creada en <span class="font-bold">Java</span> con una interfaz gráfica moderna gracias a <span class="font-semibold">JavaFX</span>. Esta herramienta está pensada para ofrecer una experiencia de chat en tiempo real, combinando una interfaz cuidada con una arquitectura técnica robusta.
+                </p>
+                <p>
+                    Permite a los usuarios <span class="font-bold">registrarse</span> e <span class="font-bold">iniciar sesión</span> para acceder a su espacio privado, donde pueden ver en tiempo real la lista de usuarios conectados. Una vez dentro, los usuarios pueden <span class="font-bold">enviar mensajes instantáneos</span> que aparecen al momento en el área de chat. Además, pueden personalizar su perfil, cambiar la imagen o cerrar sesión fácilmente.
+                </p>
+                <p>
+                    El <span class="font-semibold">backend</span> está desarrollado con <span class="font-bold">Node.js</span> y <span class="font-semibold">Express</span>, garantizando una gestión fluida de usuarios y mensajes. Toda la información, desde los perfiles hasta el historial de chat, se almacena de forma organizada en una <span class="font-bold">base de datos MongoDB</span>.
+                </p>
+            </div>
 
       <div class="grid grid-cols-2 gap-6 text-center">
           
           <!-- LinkedIn -->
           <div class="col-span-1 flex flex-col items-center">
-            <a href="https://github.com/TeurDev/Portfolio" target="_blank"
+            <a href="https://github.com/TeurDev/MessagesFX" target="_blank"
               class="border border-blue-800 text-blue-400 font-semibold py-2 px-10 rounded-full text-sm mt-4 hover:bg-blue-600/20 transition hero-secondary">
               Ver en GitHub
             </a>
@@ -139,14 +150,17 @@
 
           <!-- Email -->
           <div class="col-span-1 flex flex-col items-center">
-            <a href="https://teurdev.github.io/Portfolio/" target="_blank"
+            <a href="../../files/MessagesFX.jar" download  
               class="border border-blue-800 text-blue-400 font-semibold py-2 px-10 rounded-full text-sm mt-4 hover:bg-blue-600/20 transition hero-secondary">
-              Visitar Web
+              Descargar Jar
             </a>
           </div>
 
       </div>
-      </div>
+
+    
+
+    </div>
     </section>
   </main>
 
